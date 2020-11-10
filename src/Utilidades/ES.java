@@ -1,4 +1,4 @@
-package tutoria_10_11_20;
+package Utilidades;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -1,6 +1,7 @@
-// https://github.com/rda656/Tutoria_03_10_20
+// https://github.com/rda656/Tutoria_10_11_20
 package tutoria_10_11_20;
 
+import Utilidades.ES;
 import java.util.Scanner;
 
 /**
@@ -9,6 +10,7 @@ import java.util.Scanner;
  */
 public class Principal {
 
+    private static int numero = 0;
     /**
      * @param args the command line arguments
      */
@@ -46,11 +48,21 @@ public class Principal {
                     break;
             }
         }while(opcion != 0);
+        System.out.println ("Se han utilizado " + numero +" veces los métodos de esta clase");
+        
+        // Ejemplo de la creación de un objeto a partir de una clase nuestra
+        Persona p = new Persona(5, "Pepe");
+        p.setEdad(ES.leerEntero("Introduzca una nueva edad"));
+        System.out.println(p.toString());
+        System.out.println("La edad es " + p.getEdad() + " y el nombre es " + p.getNombre());
+        
     }
 
     public static void tablaMultiplicar(int numero){
         int resultado;
                 
+        Principal.numero = Principal.numero + 1; 
+        
         System.out.println("Tabla de multiplicar.");
         System.out.println("---------------------");   
         System.out.println("La tabla de multiplicar del " + numero + " es la siguiente:");
@@ -63,6 +75,8 @@ public class Principal {
     
     public static void adivinarNumero(){
         int numeroBuscado, numeroLeido;
+        
+        numero++;
         
         // Vamos a crear un número aleatorio entre 0 y 100
         numeroBuscado = (int) (Math.random()*100);
@@ -83,5 +97,31 @@ public class Principal {
                 System.out.println("El número que tiene que adivinar es más grande.");
         }while (numeroLeido != numeroBuscado);
         System.out.println("¡Muy bien! Ha encontrado el número.");
+    }
+    
+    
+    public static void lecturaDeNumeros(){
+        int numero;
+        numero = ES.leerEntero();
+        System.out.println(numero);
+        numero = ES.leerEntero("Introduzca un número: ");
+        System.out.println(numero);
+        numero = ES.leerEntero(-7, 65, "introduzca un valor que se encuentre entre -7 y 65: ");
+        System.out.println(numero);
+    }
+    
+    public static void metodoPrueba(){
+        Scanner teclado = new Scanner(System.in);
+        
+        int n;
+        try{
+            n = teclado.nextInt();
+            //...
+        }
+        catch(Exception e){
+            System.out.println("Error");
+        }
+        
+        //...
     }
 }
